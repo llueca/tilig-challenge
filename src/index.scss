@@ -1,0 +1,105 @@
+@font-face {
+  src: url('assets/fonts/CursedTimer.ttf');
+  font-family: 'CursedTimer';
+}
+
+@font-face {
+  src: url('assets/fonts/Montserrat-Regular.ttf');
+  font-family: 'Montserrat';
+}
+
+$button-color: #111;
+$button-background-color: #ddd;
+$timer-background-color: #9b9;
+$timer-color: #2b2a2d;
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-family: Montserrat;
+  font-size: 6rem;
+  margin: 1rem auto;
+  animation-name: boing;
+  animation-duration: 1s;
+
+  @keyframes boing {
+    from {
+      font-size: 5rem;
+    }
+
+    25% {
+      font-size: 8rem;
+    }
+
+    50% {
+      font-size: 5rem;
+    }
+
+    75% {
+      font-size: 8rem;
+    }
+
+    to {
+      font-size: 6rem;
+    }
+  }
+}
+
+.timer {
+  margin: 4rem auto;
+  background-color: $timer-background-color;
+  border: 0.5rem solid $timer-color;
+  color: $timer-color;
+  font-family: CursedTimer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10rem;
+  padding: 2.5rem 2.5rem 1rem;
+  border-radius: 3rem;
+}
+
+.button {
+  font-family: Montserrat;
+  margin: auto;
+  display: flex;
+  font-size: 2rem;
+  color: $button-color;
+  background-color: $button-background-color;
+  font-weight: bold;
+  padding: 1rem 5rem;
+  border-radius: 1rem;
+  transition: background-color ease-in-out 0.3s;
+
+  &::after {
+    margin-left: 1rem;
+  }
+
+  &--start::after {
+    content: '▶️';
+
+  }
+
+  &--stop::after {
+    content: '🛑';
+
+  }
+
+  &--reset::after {
+    content: '🔄'
+  }
+}
